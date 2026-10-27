@@ -1,48 +1,62 @@
-# Reverse Car Parking Assistant
+# Microcontroller (STM32 / Arduino) Projects Hub
 
-An STM32 Blue Pill project that measures the distance to an obstacle with an HC-SR04 ultrasonic sensor. Three LEDs show the current distance zone, while a buzzer provides an audible warning as the vehicle approaches an obstacle.
+A structured collection of embedded systems and microcontroller projects developed for the **STM32F103C8T6 (Blue Pill)** using the Arduino core for STM32 (STM32duino). Each project contains production-ready firmware, pinout tables, hardware wiring guides, and operational details.
 
-## Hardware
+---
 
-- STM32F103C8T6 Blue Pill (or a compatible STM32 board using the same pin mapping)
-- HC-SR04 ultrasonic distance sensor
-- Green, yellow, and red LEDs, each with a current-limiting resistor
-- Buzzer and an NPN transistor with a 1 kΩ base resistor
-- Breadboard and jumper wires
+## Projects Directory
 
-Connect all components to a common ground. The buzzer is driven through the NPN transistor, not directly from an MCU pin. Check the voltage tolerance of your particular STM32 board's ECHO pin; use a level shifter or voltage divider if it is not 5 V tolerant.
+| Project | Target MCU | Core Sensors & Actuators | Folder | Documentation |
+| :--- | :--- | :--- | :--- | :--- |
+| **Reverse Car Parking Assistant** | STM32F103C8T6 (Blue Pill) | HC-SR04 Ultrasonic Sensor, 3x Distance LEDs, NPN-driven Buzzer | [`Reverse_Car_Parking/`](Reverse_Car_Parking/) | [Wiring & Logic Guide](Reverse_Car_Parking/README.md) |
+| **Pedestrian Crosswalk Signal Controller** | STM32F103C8T6 (Blue Pill) | Dual vehicle traffic lights, pedestrian signals, crosswalk pushbuttons, FSM | [`Pedestrian_Traffic_Light/`](Pedestrian_Traffic_Light/) | [Phases & Pinout Guide](Pedestrian_Traffic_Light/README.md) |
 
-## Wiring
+---
 
-| Component | STM32 pin | Notes |
-| --- | --- | --- |
-| HC-SR04 TRIG | PB10 | Sensor trigger output |
-| HC-SR04 ECHO | PB11 | Sensor echo input; verify 5 V tolerance |
-| Green LED | PA0 | Safe zone |
-| Yellow LED | PA1 | Caution zone |
-| Red LED | PA2 | Danger zone |
-| Buzzer driver | PB14 | NPN transistor base through 1 kΩ |
-| Built-in LED | PC13 | Active-low Blue Pill indicator |
+## Repository Structure
 
-Put a suitable current-limiting resistor in series with each external LED. Power the HC-SR04 according to its module specifications.
+```text
+MC_Project/
+├── README.md                          # Overarching project index and hardware overview
+├── Reverse_Car_Parking/               # Ultrasonic parking distance assistant
+│   ├── README.md                      # Wiring diagram, distance thresholds, and build steps
+│   └── Reverse Car Parking.cpp        # STM32 firmware for distance sensing and alert zones
+└── Pedestrian_Traffic_Light/          # Crosswalk and traffic light finite-state machine
+    ├── README.md                      # Signal timing, pushbutton debounce, and safety notes
+    └── 3ledway.ino                    # Arduino sketch with full state machine implementation
+```
 
-## Distance and alerts
+---
 
-| Measured distance | Indicator | Buzzer |
-| --- | --- | --- |
-| Greater than 30 cm | Green LED | Off |
-| 15–30 cm | Yellow LED | Intermittent beep |
-| Less than 15 cm | Red LED | Rapid beep |
-| No valid echo | External LEDs off; built-in LED heartbeat | Off |
+## Hardware & Architecture Overview
 
-Measurements below approximately 2 cm are rejected as invalid by the firmware.
+All projects are engineered around the **STM32F103C8T6 ARM Cortex-M3** microcontroller:
+- **Core Clock**: 72 MHz
+- **Logic Level**: 3.3 V (Note: Ensure 5 V tolerance is verified on sensor inputs such as the HC-SR04 ECHO pin using level shifters or voltage dividers where required)
+- **Actuator Driving**: High-current loads (such as buzzers) are switched via an external NPN transistor driver rather than drawn directly from GPIO pins.
+- **Visual Status**: All projects maintain an active-low heartbeat on the onboard indicator LED (`PC13`).
 
-## Build and upload
+---
 
-1. Install the Arduino IDE and an STM32 board package that supports the STM32duino Arduino core.
-2. Create an Arduino sketch for the STM32F103C8T6 and select the matching board and upload method.
-3. Add [`Reverse Car Parking.cpp`](Reverse%20Car%20Parking.cpp) to the sketch folder alongside its `.ino` file.
-4. Connect the board, compile, and upload the sketch.
-5. With the sensor facing the area behind the vehicle, test the three distance zones and verify that the buzzer driver and LEDs behave as expected.
+## Development Environment & Toolchain
 
-Board package names and upload options vary by Arduino IDE and board revision. Confirm the selected board's pin mapping before powering the circuit.
+To compile and upload any project sketch to the STM32 Blue Pill:
+
+1. **IDE**: Install the [Arduino IDE](https://www.arduino.cc/en/software) (version 2.x recommended).
+2. **STM32 Board Support**:
+   - In Arduino IDE Preferences, add the STM32 board manager URL:
+     ```text
+     https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
+     ```
+   - Open **Boards Manager** and install **STM32 MCU based boards**.
+3. **Board Selection**:
+   - Board: `Generic STM32F1 series`
+   - Board part number: `BluePill F103C8` (or `STM32F103C8Tx`)
+   - Upload method: `STLink` (recommended) or `STM32CubeProgrammer (Serial)`
+4. Navigate to the respective project directory and follow the project-specific README instructions.
+
+---
+
+## Safety & Prototyping
+
+These implementations are educational and experimental prototypes. Circuits should be verified on a solderless breadboard with appropriate current-limiting resistors before connecting to power sources or live physical installations.
