@@ -40,8 +40,9 @@ Measurements below approximately 2 cm are rejected as invalid by the firmware.
 ## Build and upload
 
 1. Install the Arduino IDE and an STM32 board package that supports the STM32duino Arduino core.
-2. Create an Arduino sketch for the STM32F103C8T6, select the matching board and upload method, and place the contents of [`Reverse Car Parking`](Reverse%20Car%20Parking) in the sketch's `.ino` file.
-3. Connect the board, compile, and upload the sketch.
-4. With the sensor facing the area behind the vehicle, test the three distance zones and verify that the buzzer driver and LEDs behave as expected.
+2. Create an Arduino sketch for the STM32F103C8T6 and select the matching board and upload method.
+3. Add [`Reverse Car Parking.cpp`](Reverse%20Car%20Parking.cpp) to the sketch folder alongside its `.ino` file.
+4. Connect the board, compile, and upload the sketch.
+5. With the sensor facing the area behind the vehicle, test the three distance zones and verify that the buzzer driver and LEDs behave as expected.
 
 Board package names and upload options vary by Arduino IDE and board revision. Confirm the selected board's pin mapping before powering the circuit.

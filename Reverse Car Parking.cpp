@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 // --- PIN CONFIGURATION ---
 // HC-SR04 Pins (Matches your working test circuit)
 #define TRIG_PIN   PB10
