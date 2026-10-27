@@ -10,6 +10,7 @@ A structured collection of embedded systems and microcontroller projects develop
 | :--- | :--- | :--- | :--- | :--- |
 | **Reverse Car Parking Assistant** | STM32F103C8T6 (Blue Pill) | HC-SR04 Ultrasonic Sensor, 3x Distance LEDs, NPN-driven Buzzer | [`Reverse_Car_Parking/`](Reverse_Car_Parking/) | [Wiring & Logic Guide](Reverse_Car_Parking/README.md) |
 | **Pedestrian Crosswalk Signal Controller** | STM32F103C8T6 (Blue Pill) | Dual vehicle traffic lights, pedestrian signals, crosswalk pushbuttons, FSM | [`Pedestrian_Traffic_Light/`](Pedestrian_Traffic_Light/) | [Phases & Pinout Guide](Pedestrian_Traffic_Light/README.md) |
+| **Adaptive LED Dimmer & Night-Light** | STM32F103C8T6 (Blue Pill) | LDR Sensor, 10k Potentiometer, 12-bit PWM LED, Pushbutton, Gamma Curve | [`Adaptive_LED_Dimmer/`](Adaptive_LED_Dimmer/) | [Modes & Pinout Guide](Adaptive_LED_Dimmer/README.md) |
 
 ---
 
@@ -21,9 +22,12 @@ MC_Project/
 ├── Reverse_Car_Parking/               # Ultrasonic parking distance assistant
 │   ├── README.md                      # Wiring diagram, distance thresholds, and build steps
 │   └── Reverse Car Parking.cpp        # STM32 firmware for distance sensing and alert zones
-└── Pedestrian_Traffic_Light/          # Crosswalk and traffic light finite-state machine
-    ├── README.md                      # Signal timing, pushbutton debounce, and safety notes
-    └── 3ledway.ino                    # Arduino sketch with full state machine implementation
+├── Pedestrian_Traffic_Light/          # Crosswalk and traffic light finite-state machine
+│   ├── README.md                      # Signal timing, pushbutton debounce, and safety notes
+│   └── 3ledway.ino                    # Arduino sketch with full state machine implementation
+└── Adaptive_LED_Dimmer/               # Dual-mode PWM dimmer with auto-calibrating LDR
+    ├── README.md                      # Gamma curve math, pin mapping, and build steps
+    └── Adaptive_LED_Dimmer.ino        # 12-bit ADC/PWM sketch with mode debounce
 ```
 
 ---
@@ -33,8 +37,9 @@ MC_Project/
 All projects are engineered around the **STM32F103C8T6 ARM Cortex-M3** microcontroller:
 - **Core Clock**: 72 MHz
 - **Logic Level**: 3.3 V (Note: Ensure 5 V tolerance is verified on sensor inputs such as the HC-SR04 ECHO pin using level shifters or voltage dividers where required)
+- **High-Resolution ADC & PWM**: 12-bit resolution (0–4095) for smooth analog control and duty cycles.
 - **Actuator Driving**: High-current loads (such as buzzers) are switched via an external NPN transistor driver rather than drawn directly from GPIO pins.
-- **Visual Status**: All projects maintain an active-low heartbeat on the onboard indicator LED (`PC13`).
+- **Visual Status**: All projects maintain an active-low heartbeat or mode status on the onboard indicator LED (`PC13`).
 
 ---
 
