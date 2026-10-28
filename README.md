@@ -11,6 +11,7 @@ A structured collection of embedded systems and microcontroller projects develop
 | **Reverse Car Parking Assistant** | STM32F103C8T6 (Blue Pill) | HC-SR04 Ultrasonic Sensor, 3x Distance LEDs, NPN-driven Buzzer | [`Reverse_Car_Parking/`](Reverse_Car_Parking/) | [Wiring & Logic Guide](Reverse_Car_Parking/README.md) |
 | **Pedestrian Crosswalk Signal Controller** | STM32F103C8T6 (Blue Pill) | Dual vehicle traffic lights, pedestrian signals, crosswalk pushbuttons, FSM | [`Pedestrian_Traffic_Light/`](Pedestrian_Traffic_Light/) | [Phases & Pinout Guide](Pedestrian_Traffic_Light/README.md) |
 | **Adaptive LED Dimmer & Night-Light** | STM32F103C8T6 (Blue Pill) | LDR Sensor, 10k Potentiometer, 12-bit PWM LED, Pushbutton, Gamma Curve | [`Adaptive_LED_Dimmer/`](Adaptive_LED_Dimmer/) | [Modes & Pinout Guide](Adaptive_LED_Dimmer/README.md) |
+| **12-Bit Potentiometer PWM Dimmer** | STM32F103C8T6 (Blue Pill) | 10k Potentiometer, 12-bit PWM LED, Hardware Zero Deadband | [`Potentiometer_PWM_Dimmer/`](Potentiometer_PWM_Dimmer/) | [Hardware & Deadband Guide](Potentiometer_PWM_Dimmer/README.md) |
 
 ---
 
@@ -25,9 +26,12 @@ MC_Project/
 ├── Pedestrian_Traffic_Light/          # Crosswalk and traffic light finite-state machine
 │   ├── README.md                      # Signal timing, pushbutton debounce, and safety notes
 │   └── 3ledway.ino                    # Arduino sketch with full state machine implementation
-└── Adaptive_LED_Dimmer/               # Dual-mode PWM dimmer with auto-calibrating LDR
-    ├── README.md                      # Gamma curve math, pin mapping, and build steps
-    └── Adaptive_LED_Dimmer.ino        # 12-bit ADC/PWM sketch with mode debounce
+├── Adaptive_LED_Dimmer/               # Dual-mode PWM dimmer with auto-calibrating LDR
+│   ├── README.md                      # Gamma curve math, pin mapping, and build steps
+│   └── Adaptive_LED_Dimmer.ino        # 12-bit ADC/PWM sketch with mode debounce
+└── Potentiometer_PWM_Dimmer/          # 12-bit manual potentiometer LED brightness dimmer
+    ├── README.md                      # Pin mapping, deadband threshold, and upload guide
+    └── Potentiometer_PWM_Dimmer.ino   # Minimalist high-resolution manual dimmer sketch
 ```
 
 ---
