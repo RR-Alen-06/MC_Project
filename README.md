@@ -12,6 +12,7 @@ A structured collection of embedded systems and microcontroller projects develop
 | **Pedestrian Crosswalk Signal Controller** | STM32F103C8T6 (Blue Pill) | Dual vehicle traffic lights, pedestrian signals, crosswalk pushbuttons, FSM | [`Pedestrian_Traffic_Light/`](Pedestrian_Traffic_Light/) | [Phases & Pinout Guide](Pedestrian_Traffic_Light/README.md) |
 | **Adaptive LED Dimmer & Night-Light** | STM32F103C8T6 (Blue Pill) | LDR Sensor, 10k Potentiometer, 12-bit PWM LED, Pushbutton, Gamma Curve | [`Adaptive_LED_Dimmer/`](Adaptive_LED_Dimmer/) | [Modes & Pinout Guide](Adaptive_LED_Dimmer/README.md) |
 | **12-Bit Potentiometer PWM Dimmer** | STM32F103C8T6 (Blue Pill) | 10k Potentiometer, 12-bit PWM LED, Hardware Zero Deadband | [`Potentiometer_PWM_Dimmer/`](Potentiometer_PWM_Dimmer/) | [Hardware & Deadband Guide](Potentiometer_PWM_Dimmer/README.md) |
+| **Smart Security Alarm System** | STM32F103C8T6 (Blue Pill) | HC-SR501 PIR Sensor, SW-420 Vibration Sensor, Green/Red Status LEDs, Buzzer | [`Smart_Security_Alarm/`](Smart_Security_Alarm/) | [Sensors & FSM Guide](Smart_Security_Alarm/README.md) |
 
 ---
 
@@ -29,9 +30,12 @@ MC_Project/
 ├── Adaptive_LED_Dimmer/               # Dual-mode PWM dimmer with auto-calibrating LDR
 │   ├── README.md                      # Gamma curve math, pin mapping, and build steps
 │   └── Adaptive_LED_Dimmer.ino        # 12-bit ADC/PWM sketch with mode debounce
-└── Potentiometer_PWM_Dimmer/          # 12-bit manual potentiometer LED brightness dimmer
-    ├── README.md                      # Pin mapping, deadband threshold, and upload guide
-    └── Potentiometer_PWM_Dimmer.ino   # Minimalist high-resolution manual dimmer sketch
+├── Potentiometer_PWM_Dimmer/          # 12-bit manual potentiometer LED brightness dimmer
+│   ├── README.md                      # Pin mapping, deadband threshold, and upload guide
+│   └── Potentiometer_PWM_Dimmer.ino   # Minimalist high-resolution manual dimmer sketch
+└── Smart_Security_Alarm/              # Dual-sensor intruder detection and alarm FSM
+    ├── README.md                      # Sensor integration, wiring, and state diagram
+    └── Smart_Security_Alarm.ino       # Non-blocking PIR & vibration alarm firmware
 ```
 
 ---
