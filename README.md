@@ -13,6 +13,7 @@ A structured collection of embedded systems and microcontroller projects develop
 | **Adaptive LED Dimmer & Night-Light** | STM32F103C8T6 (Blue Pill) | LDR Sensor, 10k Potentiometer, 12-bit PWM LED, Pushbutton, Gamma Curve | [`Adaptive_LED_Dimmer/`](Adaptive_LED_Dimmer/) | [Modes & Pinout Guide](Adaptive_LED_Dimmer/README.md) |
 | **12-Bit Potentiometer PWM Dimmer** | STM32F103C8T6 (Blue Pill) | 10k Potentiometer, 12-bit PWM LED, Hardware Zero Deadband | [`Potentiometer_PWM_Dimmer/`](Potentiometer_PWM_Dimmer/) | [Hardware & Deadband Guide](Potentiometer_PWM_Dimmer/README.md) |
 | **Smart Security Alarm System** | STM32F103C8T6 (Blue Pill) | HC-SR501 PIR Sensor, SW-420 Vibration Sensor, Green/Red Status LEDs, Buzzer | [`Smart_Security_Alarm/`](Smart_Security_Alarm/) | [Sensors & FSM Guide](Smart_Security_Alarm/README.md) |
+| **RFID Attendance & Card Management System** | STM32F103C8T6 (Blue Pill) | MFRC522 RFID (SPI), SSD1306 128×64 OLED (I2C), Green/Red LEDs, Buzzer | [`RFID_Attendance_System/`](RFID_Attendance_System/) | [Wiring & Enrollment Guide](RFID_Attendance_System/README.md) |
 
 ---
 
@@ -33,9 +34,12 @@ MC_Project/
 ├── Potentiometer_PWM_Dimmer/          # 12-bit manual potentiometer LED brightness dimmer
 │   ├── README.md                      # Pin mapping, deadband threshold, and upload guide
 │   └── Potentiometer_PWM_Dimmer.ino   # Minimalist high-resolution manual dimmer sketch
-└── Smart_Security_Alarm/              # Dual-sensor intruder detection and alarm FSM
-    ├── README.md                      # Sensor integration, wiring, and state diagram
-    └── Smart_Security_Alarm.ino       # Non-blocking PIR & vibration alarm firmware
+├── Smart_Security_Alarm/              # Dual-sensor intruder detection and alarm FSM
+│   ├── README.md                      # Sensor integration, wiring, and state diagram
+│   └── Smart_Security_Alarm.ino       # Non-blocking PIR & vibration alarm firmware
+└── RFID_Attendance_System/            # Standalone RC522 RFID attendance & card enrollment with OLED
+    ├── README.md                      # SPI/I2C wiring, master card provisioning, and operation guide
+    └── RFID_Attendance_System.ino     # Non-blocking RC522 + SSD1306 OLED attendance sketch
 ```
 
 ---
