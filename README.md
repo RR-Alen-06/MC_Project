@@ -15,6 +15,7 @@ A structured collection of embedded systems and microcontroller projects develop
 | **Smart Security Alarm System** | STM32F103C8T6 (Blue Pill) | HC-SR501 PIR Sensor, SW-420 Vibration Sensor, Green/Red Status LEDs, Buzzer | [`Smart_Security_Alarm/`](Smart_Security_Alarm/) | [Sensors & FSM Guide](Smart_Security_Alarm/README.md) |
 | **RFID Attendance & Card Management System** | STM32F103C8T6 (Blue Pill) | MFRC522 RFID (SPI), SSD1306 128×64 OLED (I2C), Green/Red LEDs, Buzzer | [`RFID_Attendance_System/`](RFID_Attendance_System/) | [Wiring & Enrollment Guide](RFID_Attendance_System/README.md) |
 | **Automatic Water Tank Level Controller** | STM32F103C8T6 (Blue Pill) | Analog Water Sensor, Active-Low Relay (`3.3V` Logic), DC Pump, 3x Bar-Graph LEDs | [`Water_Tank_Controller/`](Water_Tank_Controller/) | [Hysteresis & Relay Guide](Water_Tank_Controller/README.md) |
+| **MQ-2 Gas & Smoke Leak Detection Alarm** | STM32F103C8T6 (Blue Pill) | MQ-2 Gas Sensor (`DO` on 5V-Tolerant `PB12`), NPN-driven Buzzer (`PB14`), Serial Telemetry | [`MQ2_Gas_Alarm/`](MQ2_Gas_Alarm/) | [Wiring & Calibration Guide](MQ2_Gas_Alarm/README.md) |
 
 ---
 
@@ -41,9 +42,12 @@ MC_Project/
 ├── RFID_Attendance_System/            # Standalone RC522 RFID attendance & card enrollment with OLED
 │   ├── README.md                      # SPI/I2C wiring, master card provisioning, and operation guide
 │   └── RFID_Attendance_System.ino     # Non-blocking RC522 + SSD1306 OLED attendance sketch
-└── Water_Tank_Controller/             # Automated water tank level controller with bar-graph LEDs & hysteresis
-    ├── README.md                      # Wiring diagram, 3.3V relay engineering notes, and hysteresis table
-    └── Water_Tank_Controller.ino      # 12-bit oversampled ADC, bar-graph LEDs, and hysteresis pump control
+├── Water_Tank_Controller/             # Automated water tank level controller with bar-graph LEDs & hysteresis
+│   ├── README.md                      # Wiring diagram, 3.3V relay engineering notes, and hysteresis table
+│   └── Water_Tank_Controller.ino      # 12-bit oversampled ADC, bar-graph LEDs, and hysteresis pump control
+└── MQ2_Gas_Alarm/                     # MQ-2 combustible gas and smoke leak alarm system
+    ├── README.md                      # 5V-tolerant pin wiring, heater warm-up, and calibration guide
+    └── MQ2_Gas_Alarm.ino              # MQ-2 digital comparator monitor with NPN buzzer driver
 ```
 
 ---
