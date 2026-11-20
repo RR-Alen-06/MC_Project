@@ -4,13 +4,22 @@ An Arduino-style STM32 Blue Pill sketch that cycles traffic signals for three ro
 
 ## Hardware and pinout
 
+### Components
+
+- 3 Red LEDs
+- 3 Yellow LEDs
+- 3 Green LEDs
+- 9 x 220 Ω Current-limiting Resistors
+- 1 x STM32F103C8T6 Blue Pill
+- Breadboard and jumper wires
+
 | Signal | STM32 pin |
 | --- | --- |
 | Road 1 red / yellow / green | PA0 / PA1 / PA2 |
 | Road 2 red / yellow / green | PA3 / PA4 / PA5 |
 | Road 3 red / yellow / green | PA6 / PA7 / PB0 |
 
-Use one current-limiting resistor per LED and connect all grounds together. Confirm the LED polarity and pin mapping before powering the circuit.
+Connect each LED in series with one 220 Ω resistor. The resistor may be placed on either side of the LED. Connect the LED cathodes and the resistor ends to the common ground rail. Confirm the LED polarity and pin mapping before powering the circuit.
 
 ## Sequence and timing
 
