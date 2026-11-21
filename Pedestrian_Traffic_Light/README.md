@@ -4,6 +4,17 @@ An Arduino-style STM32 Blue Pill sketch for vehicle signals and pedestrian cross
 
 ## Hardware and pinout
 
+## Components
+
+- 4 × Red LEDs
+- 2 × Yellow LEDs
+- 4 × Green LEDs
+- 10 × 220-ohm Current-limiting Resistors
+- 2 × Pushbuttons
+- 2 × 10k Ohm pull-down Resistors
+- STM32F103C8T6 Blue Pill
+- Breadboard and jumper wires
+
 | Signal | STM32 pin |
 | --- | --- |
 | Vehicle 1 red / yellow / green | PA0 / PA1 / PA2 |
